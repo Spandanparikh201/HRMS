@@ -11,6 +11,68 @@
 	  $query->bindParam(':rid',$rid,PDO::PARAM_STR);
 	  $query->execute();
 	   echo "<script>alert('User deleted Successfully');</script>"; 
+	}elseif(isset($_POST['add_user'])){
+		$fname = $_POST['firstname'];
+		$lname = $_POST['lastname'];
+		$username = $_POST['username'];
+		$email = $_POST['email'];
+		$password = md5($_POST['password']);
+		$phone = $_POST['phone'];
+		$address = $_POST['address'];
+		
+		// Handle file upload
+		$pic = $_FILES["image"]["name"];
+		$extension = substr($pic,strlen($pic)-4,strlen($pic));
+		$allowed_extensions = array(".jpg",".jpeg",".png",".gif");
+		if(!in_array($extension,$allowed_extensions)){
+			echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
+		}else{
+			$imgnewfile = md5($pic).time().$extension;
+			move_uploaded_file($_FILES["image"]["tmp_name"],"profiles/".$imgnewfile);
+			
+			$sql="INSERT INTO users(FirstName,LastName,UserName,Email,Password,Phone,Address,Picture) VALUES(:fname,:lname,:username,:email,:password,:phone,:address,:pic)";
+			$query = $dbh->prepare($sql);
+			$query->bindParam(':fname',$fname,PDO::PARAM_STR);
+			$query->bindParam(':lname',$lname,PDO::PARAM_STR);
+			$query->bindParam(':username',$username,PDO::PARAM_STR);
+			$query->bindParam(':email',$email,PDO::PARAM_STR);
+			$query->bindParam(':password',$password,PDO::PARAM_STR);
+			$query->bindParam(':phone',$phone,PDO::PARAM_STR);
+			$query->bindParam(':address',$address,PDO::PARAM_STR);
+			$query->bindParam(':pic',$imgnewfile,PDO::PARAM_STR);
+			$query->execute();
+			$lastInsertId = $dbh->lastInsertId();
+			if($lastInsertId){
+				echo '<script>alert("User added successfully")</script>';
+			}else{
+				echo "<script>alert('Something went wrong. Please try again');</script>";
+			}
+		}
+	}elseif(isset($_POST['edit_user'])){
+		$user_id = $_POST['user_id'];
+		$fname = $_POST['firstname'];
+		$lname = $_POST['lastname'];
+		$username = $_POST['username'];
+		$email = $_POST['email'];
+		$phone = $_POST['phone'];
+		$address = $_POST['address'];
+		
+		$sql="UPDATE users SET FirstName=:fname,LastName=:lname,UserName=:username,Email=:email,Phone=:phone,Address=:address WHERE id=:id";
+		$query = $dbh->prepare($sql);
+		$query->bindParam(':fname',$fname,PDO::PARAM_STR);
+		$query->bindParam(':lname',$lname,PDO::PARAM_STR);
+		$query->bindParam(':username',$username,PDO::PARAM_STR);
+		$query->bindParam(':email',$email,PDO::PARAM_STR);
+		$query->bindParam(':phone',$phone,PDO::PARAM_STR);
+		$query->bindParam(':address',$address,PDO::PARAM_STR);
+		$query->bindParam(':id',$user_id,PDO::PARAM_STR);
+		$query->execute();
+		
+		if($query->rowCount() > 0){
+			echo '<script>alert("User updated successfully")</script>';
+		}else{
+			echo "<script>alert('No changes made or error occurred');</script>";
+		}
 	}
  ?>
 <!DOCTYPE html>
@@ -167,8 +229,8 @@
 												<div class="dropdown dropdown-action">
 													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
 													<div class="dropdown-menu dropdown-menu-right">
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_user"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_user"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+														<a class="dropdown-item" href="#" onclick="editUser(<?php echo $result->id; ?>,'<?php echo $result->FirstName; ?>','<?php echo $result->LastName; ?>','<?php echo $result->UserName; ?>','<?php echo $result->Email; ?>','<?php echo $result->Phone; ?>','<?php echo $result->Address; ?>')" data-toggle="modal" data-target="#edit_user"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+														<a class="dropdown-item" href="users.php?delid=<?php echo $result->id; ?>" onclick="return confirm('Do you really want to Delete ?');"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
 													</div>
 												</div>
 											</td>
@@ -223,6 +285,21 @@
 
 		<!-- Custom JS -->
 		<script src="assets/js/app.js"></script>
+		
+		<!-- Theme Toggle JS -->
+		<script src="assets/js/theme-toggle.js"></script>
+		
+		<script>
+		function editUser(id, fname, lname, username, email, phone, address) {
+			document.getElementById('edit_user_id').value = id;
+			document.getElementById('edit_firstname').value = fname;
+			document.getElementById('edit_lastname').value = lname;
+			document.getElementById('edit_username').value = username;
+			document.getElementById('edit_email').value = email;
+			document.getElementById('edit_phone').value = phone;
+			document.getElementById('edit_address').value = address;
+		}
+		</script>
 		
     </body>
 </html>
