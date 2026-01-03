@@ -6,10 +6,10 @@ A comprehensive HR management system for streamlined workforce operations.
 - Employee Management
 - Payroll Processing
 - Leave Management
-- Project Tracking
-- Client Management
-- Asset Management
-- Dashboard Analytics
+- Project Tracking (Future Implementation)
+- Client Management (Future Implementation)
+- Asset Management (Future Implementation)
+- Dashboard Analytics (Future Implementation)
 
 ## Installation
 1. Copy files to your web server
