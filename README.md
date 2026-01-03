@@ -18,13 +18,8 @@ A comprehensive HR management system for streamlined workforce operations.
 4. Access via web browser
 
 ## Default Login
-- Username: Vendetta
-- Password: vendetta
-
-OR
-
-- Username: Barry
-- Password: barry
+- Username: spandyparikh2@gmail.com
+- Password: 123456
 
 ## Technology Stack
 - PHP 7.4+
@@ -32,5 +27,9 @@ OR
 - Bootstrap 4
 - jQuery
 
----
-Powered by Dayflow HR Management System
+Powered by Dayflow HR Management System-2025 
+A Team Effort by 
+{Spandan Parikh
+Kush Bhatt
+Vishesh Unadkat
+Nisarg Lakhalani}
