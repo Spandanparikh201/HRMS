@@ -326,8 +326,8 @@
 	//adding employees leave code starts here
 	elseif(isset($_POST['add_leave'])){
 		$employee = htmlspecialchars($_POST['employee']);
-		$start_date =htmlspecialchars( $_POST['starting_at']);
-		$end_date = htmlspecialchars($_POST['ends_on']);
+		$start_date = DateTime::createFromFormat('d/m/Y', $_POST['starting_at'])->format('Y-m-d');
+		$end_date = DateTime::createFromFormat('d/m/Y', $_POST['ends_on'])->format('Y-m-d');
 		$days_count = htmlspecialchars($_POST['days_count']);
 		$reason = htmlspecialchars($_POST['reason']);
 		$sql = "INSERT INTO `leaves` (`Employee`, `Starting_At`, `Ending_On`, `Days`, `Reason`, `Time_Added`)
@@ -342,7 +342,7 @@
 		$lastInsert = $dbh->lastInsertId();
 		if($lastInsert>0){
 			echo "<script>alert('Employee Leave Has Been Added');</script>";
-			echo "<script>window.location.href='leaves-employee.php';</script>";
+			echo "<script>window.location.href='leaves-admin.php';</script>";
 		}else{
 			echo "<script>alert('Something went wrong');</script>";
 		}

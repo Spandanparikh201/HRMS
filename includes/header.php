@@ -2,7 +2,7 @@
 	<!-- Logo -->
 	<div class="header-left">
 		<a href="index.php" class="logo">
-			<img src="assets/img/logo.png" width="40" height="40" alt="">
+			<img src="assets/img/logo.png" alt="Dayflow">
 		</a>
 	</div>
 	<!-- /Logo -->
@@ -22,9 +22,16 @@
 	<!-- /Header Title -->
 	
 	<a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
-	
+    
 	<!-- Header Menu -->
 	<ul class="nav user-menu">
+    
+        <!-- Dark Mode Toggle -->
+        <li class="nav-item">
+            <a href="javascript:void(0);" id="dark_mode_toggle" class="nav-link">
+                <i class="fa fa-moon-o"></i>
+            </a>
+        </li>
 	
 		<!-- Search -->
 		<li class="nav-item">

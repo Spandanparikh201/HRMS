@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 	session_start();
 	error_reporting(0);
 	include_once('includes/config.php');
@@ -45,7 +45,7 @@
 		<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
 		
 		<!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/dark-theme.css">
 		
 		<?php include_once("includes/dark-mode.php"); ?>
 		

@@ -342,3 +342,21 @@ $(window).on ('load', function (){
 	$('#loader').delay(100).fadeOut('slow');
 	$('#loader-wrapper').delay(500).fadeOut('slow');
 });
+
+// Dark Mode Toggle
+$(document).on('click', '#dark_mode_toggle', function() {
+    $('body').toggleClass('dark-mode');
+    if($('body').hasClass('dark-mode')){
+        localStorage.setItem('theme', 'dark');
+        $(this).find('i').removeClass('fa-moon-o').addClass('fa-sun-o');
+    } else {
+        localStorage.setItem('theme', 'light');
+        $(this).find('i').removeClass('fa-sun-o').addClass('fa-moon-o');
+    }
+});
+
+// Check LocalStorage
+if(localStorage.getItem('theme') === 'dark'){
+    $('body').addClass('dark-mode');
+    $('#dark_mode_toggle').find('i').removeClass('fa-moon-o').addClass('fa-sun-o');
+}

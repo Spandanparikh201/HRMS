@@ -1,4 +1,4 @@
-<?php 
+ï»¿<?php 
 	session_start();
 	error_reporting(0);
 	include('includes/config.php');
@@ -30,7 +30,7 @@
 		<link rel="stylesheet" href="assets/css/line-awesome.min.css">
 		
 		<!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/dark-theme.css">
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -228,7 +228,7 @@
 																		<ul class="pagination">
 																			<li class="page-item">
 																				<a class="page-link" href="#" aria-label="Previous">
-																					<span aria-hidden="true">«</span>
+																					<span aria-hidden="true">Â«</span>
 																					<span class="sr-only">Previous</span>
 																				</a>
 																			</li>
@@ -236,7 +236,7 @@
 																			<li class="page-item"><a class="page-link" href="#">2</a></li>
 																			<li class="page-item">
 																				<a class="page-link" href="#" aria-label="Next">
-																					<span aria-hidden="true">»</span>
+																					<span aria-hidden="true">Â»</span>
 																				<span class="sr-only">Next</span>
 																				</a>
 																			</li>
@@ -340,7 +340,7 @@
 																		<ul class="pagination">
 																			<li class="page-item">
 																				<a class="page-link" href="#" aria-label="Previous">
-																					<span aria-hidden="true">«</span>
+																					<span aria-hidden="true">Â«</span>
 																					<span class="sr-only">Previous</span>
 																				</a>
 																			</li>
@@ -348,7 +348,7 @@
 																			<li class="page-item"><a class="page-link" href="#">2</a></li>
 																			<li class="page-item">
 																				<a class="page-link" href="#" aria-label="Next">
-																					<span aria-hidden="true">»</span>
+																					<span aria-hidden="true">Â»</span>
 																				<span class="sr-only">Next</span>
 																				</a>
 																			</li>
@@ -452,7 +452,7 @@
 																		<ul class="pagination">
 																			<li class="page-item">
 																				<a class="page-link" href="#" aria-label="Previous">
-																					<span aria-hidden="true">«</span>
+																					<span aria-hidden="true">Â«</span>
 																					<span class="sr-only">Previous</span>
 																				</a>
 																			</li>
@@ -460,7 +460,7 @@
 																			<li class="page-item"><a class="page-link" href="#">2</a></li>
 																			<li class="page-item">
 																				<a class="page-link" href="#" aria-label="Next">
-																					<span aria-hidden="true">»</span>
+																					<span aria-hidden="true">Â»</span>
 																				<span class="sr-only">Next</span>
 																				</a>
 																			</li>
@@ -564,7 +564,7 @@
 																		<ul class="pagination">
 																			<li class="page-item">
 																				<a class="page-link" href="#" aria-label="Previous">
-																					<span aria-hidden="true">«</span>
+																					<span aria-hidden="true">Â«</span>
 																					<span class="sr-only">Previous</span>
 																				</a>
 																			</li>
@@ -572,7 +572,7 @@
 																			<li class="page-item"><a class="page-link" href="#">2</a></li>
 																			<li class="page-item">
 																				<a class="page-link" href="#" aria-label="Next">
-																					<span aria-hidden="true">»</span>
+																					<span aria-hidden="true">Â»</span>
 																				<span class="sr-only">Next</span>
 																				</a>
 																			</li>

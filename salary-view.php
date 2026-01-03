@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 	session_start();
 	error_reporting(0);
 	include('includes/config.php');
@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="assets/css/line-awesome.min.css">
 		
 		<!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/dark-theme.css">
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -68,9 +68,9 @@
 							</div>
 							<div class="col-auto float-right ml-auto">
 								<div class="btn-group btn-group-sm">
-									<button class="btn btn-white">CSV</button>
-									<button class="btn btn-white">PDF</button>
-									<button class="btn btn-white"><i class="fa fa-print fa-lg"></i> Print</button>
+									<a href="export-salary.php?type=csv" class="btn btn-white"><i class="fa fa-file-excel-o"></i> CSV</a>
+									<a href="export-salary.php?type=pdf" class="btn btn-white"><i class="fa fa-file-pdf-o"></i> PDF</a>
+									<button class="btn btn-white" onclick="window.print()"><i class="fa fa-print fa-lg"></i> Print</button>
 								</div>
 							</div>
 						</div>
@@ -84,7 +84,7 @@
 									<h4 class="payslip-title">Payslip for the month of Feb 2019</h4>
 									<div class="row">
 										<div class="col-sm-6 m-b-20">
-											<img src="assets/img/logo2.png" class="inv-logo" alt="">
+											<img src="assets/img/logo_trans.png" class="inv-logo" alt="">
 											<ul class="list-unstyled mb-0">
 												<li>Dayflow Technologies</li>
 												<li>3864 Quiet Valley Lane,</li>

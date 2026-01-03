@@ -28,11 +28,15 @@
 									</div>
 									<div class="form-group">
 										<label>From <span class="text-danger">*</span></label>
-										<input name="starting_at" class="form-control" type="text">
+										<div class="cal-icon">
+											<input name="starting_at" class="form-control datetimepicker" type="text">
+										</div>
 									</div>
 									<div class="form-group">
 										<label>To <span class="text-danger">*</span></label>
-											<input name="ends_on" class="form-control " type="date">
+										<div class="cal-icon">
+											<input name="ends_on" class="form-control datetimepicker" type="text">
+										</div>
 									</div>
 									<div class="form-group">
 										<label>Number of days <span class="text-danger">*</span></label>

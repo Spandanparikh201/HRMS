@@ -9,7 +9,7 @@
 								<div class="modal-btn delete-action">
 									<div class="row">
 										<div class="col-6">
-											<a href="leaves-employee.php?delid=<?php echo htmlentities($row->id);?>" class="btn btn-primary continue-btn">Delete</a>
+											<a href="leaves-admin.php?delid=<?php echo htmlentities($row->id);?>" class="btn btn-primary continue-btn">Delete</a>
 										</div>
 										<div class="col-6">
 											<a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>

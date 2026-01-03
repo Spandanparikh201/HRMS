@@ -31,6 +31,9 @@
 		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
+        
+        <!-- Dark Theme CSS -->
+        <link rel="stylesheet" href="assets/css/dark-theme.css">
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -87,6 +90,21 @@
 							<section class="dash-section">
 								<h1 class="dash-sec-title">Today</h1>
 								<div class="dash-sec-content">
+                                    <!-- Attendance Widget -->
+									<div class="dash-info-list">
+										<div class="dash-card">
+											<div class="dash-card-container">
+												<div class="dash-card-icon">
+													<i class="fa fa-clock-o"></i>
+												</div>
+												<div class="dash-card-content">
+													<p>Attendance</p>
+                                                    <a href="attendance.php" class="btn btn-primary btn-sm">Manage Attendance</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
 									<div class="dash-info-list">
 										<a href="#" class="dash-card text-danger">
 											<div class="dash-card-container">
@@ -212,29 +230,6 @@
 
 						<div class="col-lg-4 col-md-4">
 							<div class="dash-sidebar">
-								<section>
-									<h5 class="dash-title">Projects</h5>
-									<div class="card">
-										<div class="card-body">
-											<div class="time-list">
-												<div class="dash-stats-list">
-													<h4>71</h4>
-													<p>Total Tasks</p>
-												</div>
-												<div class="dash-stats-list">
-													<h4>14</h4>
-													<p>Pending Tasks</p>
-												</div>
-											</div>
-											<div class="request-btn">
-												<div class="dash-stats-list">
-													<h4>2</h4>
-													<p>Total Projects</p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</section>
 								<section>
 									<h5 class="dash-title">Your Leave</h5>
 									<div class="card">

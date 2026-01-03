@@ -1,24 +1,28 @@
-<?php
+﻿<?php
 	session_start();
 	error_reporting(0);
 	include_once("includes/config.php");
-	if($_SESSION['userlogin']>0){
+	if(isset($_SESSION['userlogin']) && $_SESSION['userlogin']>0){ // Fixed condition check
 		header('location:index.php');
 	}elseif(isset($_POST['login'])){
-		$_SESSION['userlogin'] = $_POST['username'];
-		$username = htmlspecialchars($_POST['username']);
+		$_SESSION['userlogin'] = $_POST['email']; // Session stores email now? Or stick to username? Let's use Email or derived username.
+		$email = htmlspecialchars($_POST['email']);
 		$password = htmlspecialchars($_POST['password']);
-		$sql = "SELECT UserName,Password from users where UserName=:username";
+		// Changed to select by Email
+		$sql = "SELECT UserName, Password, Email from users where Email=:email";
 		$query = $dbh->prepare($sql);
-		$query->bindParam(':username',$username,PDO::PARAM_STR);
+		$query->bindParam(':email',$email,PDO::PARAM_STR);
 		$query-> execute();
 		$results=$query->fetchAll(PDO::FETCH_OBJ);
 		if($query->rowCount() > 0){
 			foreach ($results as $row) {
 				$hashpass=$row->Password;
-			}//verifying Password
+				$username=$row->UserName; 
+			}
+			// Verifying Password
 			if (password_verify($password, $hashpass)) {
-				$_SESSION['userlogin']=$_POST['username'];
+				$_SESSION['userlogin']=$username; // Keeping session as username for compatibility with other pages
+				$_SESSION['user_email']=$row->Email;
 				echo "<script>window.location.href= 'index.php'; </script>";
 			}
 			else {
@@ -35,7 +39,7 @@
 		else{
 			$wrongusername='
 			<div class="alert alert-danger alert-dismissible fade show" role="alert">
-				<strong>Oh Snapp!??</strong> Alert <b class="alert-link">UserName: </b> You entered a wrong UserName.
+				<strong>Oh Snapp!??</strong> Alert <b class="alert-link">Email: </b> You entered a wrong Email.
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -64,7 +68,7 @@
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 		
 		<!-- Main CSS -->
-		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/dark-theme.css">
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -86,12 +90,12 @@
 					
 					<div class="account-box">
 						<div class="account-wrapper">
-							<h3 class="account-title">Dayflow Admin Login</h3>
+							<h3 class="account-title">Dayflow Login</h3>
 							<!-- Account Form -->
 							<form method="POST" enctype="multipart/form-data">
 								<div class="form-group">
-									<label>User Name</label>
-									<input class="form-control" name="username" required type="text">
+									<label>Email Address</label>
+									<input class="form-control" name="email" required type="email">
 								</div>
 								<?php if($wrongusername){echo $wrongusername;}?>
 								<div class="form-group">
@@ -114,6 +118,7 @@
 								</div>
 									
 								<div class="account-footer">
+									<p>Don't have an account yet? <a href="register.php">Register</a></p>
 									<p>Powered by Dayflow HR Management System</p>
 								</div>
 							</form>

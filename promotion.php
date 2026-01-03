@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 	session_start();
 	error_reporting(0);
 	include('includes/config.php');
@@ -40,7 +40,7 @@
 		<link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
 		
 		<!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/dark-theme.css">
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
