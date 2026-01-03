@@ -139,7 +139,7 @@
 						<div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
 							<div class="profile-widget">
 								<div class="profile-img">
-									<a href="profile.html" class="avatar"><img src="employees/<?php echo htmlentities($row->Picture); ?>" alt="picture"></a>
+									<a href="profile.php" class="avatar"><img src="employees/<?php echo htmlentities($row->Picture); ?>" alt="picture"></a>
 								</div>
 								<div class="dropdown profile-action">
 									<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -148,7 +148,7 @@
 										<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
 									</div>
 								</div>
-								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.html"><?php echo htmlentities($row->FirstName)." ".htmlentities($row->LastName); ?></a></h4>
+								<h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="profile.php"><?php echo htmlentities($row->FirstName)." ".htmlentities($row->LastName); ?></a></h4>
 								<div class="small text-muted"><?php echo htmlentities($row->Designation); ?></div>
 							</div>
 						</div>	
