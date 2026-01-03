@@ -382,6 +382,9 @@
 		
 		<!-- Custom JS -->
 		<script src="assets/js/app.js"></script>
+		
+		<!-- Theme Toggle JS -->
+		<script src="assets/js/theme-toggle.js"></script>
 		<!-- javascript links ends here  -->
     </body>
 </html>

@@ -47,6 +47,8 @@
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
 		
+		<?php include_once("includes/dark-mode.php"); ?>
+		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 			<script src="assets/js/html5shiv.min.js"></script>
@@ -198,6 +200,9 @@
 		
 		<!-- Custom JS -->
 		<script src="assets/js/app.js"></script>
+		
+		<!-- Theme Toggle JS -->
+		<script src="assets/js/theme-toggle.js"></script>
 		
     </body>
 </html>
